@@ -26,6 +26,7 @@
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.25.3",

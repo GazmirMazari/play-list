@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
-import { artistsData } from './data'
+import { artistsData } from './songsData'
 
 const prisma = new PrismaClient()
 
@@ -24,18 +24,21 @@ const run = async () => {
     })
   )
 
+  
   const salt = bcrypt.genSaltSync()
+
   const user = await prisma.user.upsert({
-    where: { email: 'user@test.com' },
+    where: {email: 'user@test.com'},
     update: {},
     create: {
       email: 'user@test.com',
       password: bcrypt.hashSync('password', salt),
-      firstName: 'Scott',
-      lastName: 'Moss',
-    },
+      firstName: 'Gazmir',
+      lastName: 'Mazari'
+    }
   })
 
+ 
   const songs = await prisma.song.findMany({})
   await Promise.all(
     new Array(10).fill(1).map(async (_, i) => {
@@ -54,6 +57,7 @@ const run = async () => {
       })
     })
   )
+
 }
 
 run()
