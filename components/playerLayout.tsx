@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/layout'
 import React, { ReactNode, FC } from "react";
-
+import Sidebar from './sidebar';
 
 interface Props {
     children?: ReactNode
@@ -12,6 +12,7 @@ const PlayerLayout: FC<Props> =  ({ children }) => {
     <Box width="100vw" height="800vh">
         Last
       <Box position="absolute" top="0" width="350px" left="0">
+        <Sidebar />
       </Box>
       <Box marginLeft="250px" marginBottom="100px">
         Test
